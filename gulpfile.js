@@ -36,11 +36,17 @@ gulp.task('html', function() {
 //css 处理
 gulp.task('css', function() {
   return gulp.src(paths.css)
-    .pipe(autoprefixer('last 2 version', 'ie 8', 'ie 9'))
+    //添加前缀
+    .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
+    //保存未压缩文件到我们指定的目录下面
     .pipe(gulp.dest('dist/assets/css'))
+    //给文件添加.min后缀
     .pipe(rename({suffix: '.min'}))
+    //压缩样式文件
     .pipe(minifycss())
+    //输出压缩文件到指定目录
     .pipe(gulp.dest('dist/assets/css'))
+    //提醒任务完成
     .pipe(notify({ message: 'Css task complete' }));
 });
 
