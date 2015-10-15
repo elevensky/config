@@ -26,7 +26,7 @@ var paths = {
 // html处理
 gulp.task('html', function() {
     var htmlSrc = './src/*.html',
-        htmlDst = './dist/';
+        htmlDst = './build/';
 
     gulp.src(htmlSrc)
         .pipe(livereload(server))
